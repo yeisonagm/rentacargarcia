@@ -34,6 +34,7 @@ public class Auto {
 
     // Relación con Garaje
     @ManyToOne
+    @JoinColumn(name = "id_garaje")
     @JsonBackReference
     private Garaje garaje;
 
