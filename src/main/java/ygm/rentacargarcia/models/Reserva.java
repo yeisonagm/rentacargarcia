@@ -28,7 +28,7 @@ public class Reserva {
 
     private Boolean autosEntregados;
 
-    private double precioTotal;
+    private Double precioTotal;
 
     // Relación con Agencia
     @ManyToOne
