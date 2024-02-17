@@ -1,6 +1,7 @@
 package ygm.rentacargarcia.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,6 +10,9 @@ import java.util.List;
 
 @Entity
 @Data
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "idAgencia")
 public class Agencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +27,5 @@ public class Agencia {
 
     // Relación con Reserva
     @OneToMany(mappedBy = "agencia")
-    //@JsonManagedReference(value = "agencia-reserva")
-    @JsonIgnore
     private List<Reserva> reservas = new ArrayList<>();
-
 }
