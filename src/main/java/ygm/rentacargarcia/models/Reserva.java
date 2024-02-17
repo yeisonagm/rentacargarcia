@@ -32,7 +32,6 @@ public class Reserva {
 
     // Relación con Agencia
     @ManyToOne
-    @JsonBackReference
     private Agencia agencia;
 
     // Relación con Cliente

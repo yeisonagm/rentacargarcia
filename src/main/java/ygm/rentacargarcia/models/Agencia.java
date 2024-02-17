@@ -1,6 +1,6 @@
 package ygm.rentacargarcia.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -23,7 +23,8 @@ public class Agencia {
 
     // Relación con Reserva
     @OneToMany(mappedBy = "agencia")
-    @JsonManagedReference
+    //@JsonManagedReference(value = "agencia-reserva")
+    @JsonIgnore
     private List<Reserva> reservas = new ArrayList<>();
 
 }
