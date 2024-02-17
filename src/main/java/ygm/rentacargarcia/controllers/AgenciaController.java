@@ -30,7 +30,6 @@ public class AgenciaController {
         return ResponseEntity.notFound().build();
     }
 
-    // Error 415 al momento de hacer el POST
     @PostMapping
     public ResponseEntity<?> create(@RequestBody Agencia agencia) {
         return ResponseEntity.status(HttpStatus.CREATED)
@@ -52,7 +51,7 @@ public class AgenciaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         Optional<Agencia> agenciaOpt = agenciaService.getAgenciaById(id);
         if (agenciaOpt.isPresent()){
             agenciaService.deleteAgencia(id);
