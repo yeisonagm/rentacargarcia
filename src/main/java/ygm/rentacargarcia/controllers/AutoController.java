@@ -27,7 +27,7 @@ public class AutoController {
         return autoService.getAllAutos();
     }
 
-    @GetMapping("/{id}") // No esta funcionando, error 500
+    @GetMapping("/{id}")
     public ResponseEntity<?> getAutoById(@PathVariable Long id) {
         Optional<Auto> autoOpt = autoService.getAutoById(id);
         if (autoOpt.isPresent()) {
@@ -41,7 +41,6 @@ public class AutoController {
         if (auto.getGaraje() != null && auto.getGaraje().getIdGaraje() != null) {
             Optional<Garaje> garajeOpt = garajeService.getGarajeById(auto.getGaraje().getIdGaraje());
             if (garajeOpt.isEmpty()) {
-                //return ResponseEntity.notFound().build();
                 String messaje = "Garaje que desea asignar no existe id(" + auto.getGaraje().getIdGaraje() + ")";
                 return new ResponseEntity<>(messaje, HttpStatus.NOT_FOUND);
             }
