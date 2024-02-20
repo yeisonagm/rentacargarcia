@@ -13,4 +13,6 @@ public interface ReservaService {
     Reserva saveReserva(Reserva reserva);
 
     void deleteReserva(Long idReserva);
+
+    Reserva addAutoToReserva(Long idReserva, Long idAuto);
 }
